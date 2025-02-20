@@ -7,6 +7,7 @@
  * need to use are documented accordingly near the end.
  */
 import { initTRPC } from "@trpc/server";
+import { type Logger } from "next-axiom";
 import superjson from "superjson";
 import { ZodError } from "zod";
 
@@ -22,7 +23,10 @@ import { ZodError } from "zod";
  *
  * @see https://trpc.io/docs/server/context
  */
-export const createTRPCContext = async (opts: { headers: Headers }) => {
+export const createTRPCContext = async (opts: {
+  headers: Headers;
+  log: Logger;
+}) => {
   return {
     ...opts,
   };
